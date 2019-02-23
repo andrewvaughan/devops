@@ -1,0 +1,84 @@
+# Ansible Inventory
+#
+# VIPs are designed in the following format:
+#     https://wiki.andrewvaughan.io/books/homelab/page/hostname-domain-name-and-port-numbering-standards
+#
+# For information on how this file is formatted, see the Ansible documentation:
+#     https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+---
+
+all:
+  children:
+
+    ### LOCALHOST ####################################################################################################
+    local:
+      hosts:
+        localhost:
+
+
+    ### REGIONS ######################################################################################################
+    region:
+      children:
+
+        ### ASIA / PACIFIC
+        apac:
+
+
+        ### EUROPE / MIDDLE EAST / AFIRCA
+        emea:
+
+
+        ### LATIN AMERICA
+        latam:
+
+
+        ### NORTH AMERICA
+        noram:
+          children:
+
+            united_states:
+              children:
+
+                # US - NORTHEAST
+                northeast:
+                  children:
+
+                    new_york:
+                      children:
+
+                        # DIGITALOCEAN - NYC REGIONS
+                        digitalocean:
+                          children:
+
+                            do_nyc1:
+
+                            do_nyc2:
+
+                            do_nyc3:
+                              children:
+
+                                client:
+                                  hosts:
+                                    www001.client.nyc3.do.andrewvaughan.io:
+                                      ansible_host : "167.99.20.248"
+
+                                personal:
+                                  hosts:
+                                    www001.personal.nyc3.do.andrewvaughan.io:
+                                      ansible_host : "159.89.255.110"
+
+                # US - NORTHWEST
+                northwest:
+
+                # US - SOUTHEAST
+                southeast:
+                  children:
+
+                    florida:
+                      children:
+
+                        # HOMELAB - FLORIDA
+                        homelab:
+
+                # US - SOUTHWEST
+                southwest:
