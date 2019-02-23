@@ -1,0 +1,4 @@
+# Variables that apply to all hosts
+---
+ansible_ssh_user   : devops
+ansible_connection : ssh

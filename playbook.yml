@@ -1,0 +1,49 @@
+# Andrew Vaughan DevOps Infrastructure Playbook
+#
+# Tags available in order of execution:
+#     - common           Common configurations deployed on all hosts
+#
+#
+# @example 1. Run configurations across ALL hosts:
+#
+# ```bash
+# ansible-playbook playbook.yml
+# ```
+#
+# @example 2. Run configurations ONLY on DigitalOcean hosts:
+#
+# ```bash
+# ansible-playbook playbook.yml --limit "datacenter:&digital-ocean"
+# ```
+#
+# @example 3. Skip the provisioning step with DigitalOcean hosts:
+#
+# ```bash
+# ansible-playbook --vault-id do@prompt group_vars/digitalocean.yml --skip-tags=provision playbook.yml
+# ```
+#
+# @example 4. Only perform the provisioning step with DigitalOcean hosts:
+#
+# ```bash
+# ansible-playbook --vault-id do@prompt group_vars/digitalocean.yml --tags=provision playbook.yml
+# ```
+---
+
+#
+# @TODO - Run "raw" installations of python2, if needed (possibly with tag, if error handling is unavailable)
+#
+
+
+#
+# @TODO - Provision the `devops` user, if the `root-user` tag is explicitly set
+#
+
+
+#
+# Configure the server to the expected base standard, including security and performance needs
+#
+# - name  : Secure and Configure Server Environment
+#   hosts : all
+#   gather_facts : false
+#   roles:
+#     - { role : common, tags [ "common" ] }
