@@ -16,69 +16,73 @@ all:
         localhost:
 
 
-    ### REGIONS ######################################################################################################
-    region:
+    ### HOSTED #######################################################################################################
+    hosted:
       children:
 
-        ### ASIA / PACIFIC
-        apac:
-
-
-        ### EUROPE / MIDDLE EAST / AFIRCA
-        emea:
-
-
-        ### LATIN AMERICA
-        latam:
-
-
-        ### NORTH AMERICA
-        noram:
+        ### REGION ###################################################################################################
+        region:
           children:
 
-            united_states:
+            ### ASIA / PACIFIC
+            apac:
+
+
+            ### EUROPE / MIDDLE EAST / AFIRCA
+            emea:
+
+
+            ### LATIN AMERICA
+            latam:
+
+
+            ### NORTH AMERICA
+            noram:
               children:
 
-                # US - NORTHEAST
-                northeast:
+                united_states:
                   children:
 
-                    new_york:
+                    # US - NORTHEAST
+                    northeast:
                       children:
 
-                        # DIGITALOCEAN - NYC REGIONS
-                        digitalocean:
+                        new_york:
                           children:
 
-                            do_nyc1:
-
-                            do_nyc2:
-
-                            do_nyc3:
+                            # DIGITALOCEAN - NYC REGIONS
+                            digitalocean:
                               children:
 
-                                client:
-                                  hosts:
-                                    www001.client.nyc3.do.andrewvaughan.io:
-                                      ansible_host : "167.99.20.248"
+                                do_nyc1:
 
-                                personal:
-                                  hosts:
-                                    www001.personal.nyc3.do.andrewvaughan.io:
-                                      ansible_host : "159.89.255.110"
+                                do_nyc2:
 
-                # US - NORTHWEST
-                northwest:
+                                do_nyc3:
+                                  children:
 
-                # US - SOUTHEAST
-                southeast:
-                  children:
+                                    client:
+                                      hosts:
+                                        www001.client.nyc3.do.andrewvaughan.io:
+                                          ansible_host : "167.99.20.248"
 
-                    florida:
+                                    personal:
+                                      hosts:
+                                        www001.personal.nyc3.do.andrewvaughan.io:
+                                          ansible_host : "159.89.255.110"
+
+                    # US - NORTHWEST
+                    northwest:
+
+                    # US - SOUTHEAST
+                    southeast:
                       children:
 
-                        # HOMELAB - FLORIDA
-                        homelab:
+                        florida:
+                          children:
 
-                # US - SOUTHWEST
-                southwest:
+                            # HOMELAB - FLORIDA
+                            homelab:
+
+                    # US - SOUTHWEST
+                    southwest:

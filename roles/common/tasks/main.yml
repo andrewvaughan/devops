@@ -1,0 +1,10 @@
+# Runs the "common" role and tasks.
+#
+# @author Andrew Vaughan <hello@andrewvaughan.io>
+# @since  0.1.0
+---
+
+#
+# Ensures that users are configured properly on the host
+#
+- import_tasks : users.yml

@@ -1,0 +1,49 @@
+# Provides details on users that should be configured on the platform.
+#
+# This vault is protected by the `user` vault-id. As such, you must provide the password for this vault to be used:
+#
+# ```bash
+# ansible-playbook --vault-id user@prompt playbook.yml
+# ```
+#
+# @author Andrew Vaughan <hello@andrewvaughan.io>
+# @since  0.1.0
+---
+details:
+
+  - name      : root
+    password  : !vault |
+                $ANSIBLE_VAULT;1.2;AES256;user
+                38616462393765613538343135666337333530663338653638393036313832656239356163626438
+                3861623937333266633761663730333866363131393036330a303138653531353564633533396130
+                64636532313038663761353134333032363562343964346331346239633435393362373732316633
+                3962313937316364650a343139626265353933666362366464633963353463393765373666343037
+                34376632666534616638386435653037363066383537393735613462326532623835
+    sudoers   : "ALL = (ALL) ALL"
+    auth_hosts: []
+
+  - name      : devops
+    sudoers   : "ALL = (ALL) ALL"
+    password  : derp
+    auth_hosts:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDRH9CCp7wlUgNQeELopcnv7GAdW5gwNKdYj8UnKB8kU9zKLZxvZWSvsYkHT+FHQL4hLLEkCP
+                iUUEdYhFL8/esyWZrU9x5zewYYenB8oveouMKMbejcupmkleOnXM1DV/lxQTSwFppE+N2/gVSwk0PKejl9BeCx6cp4KL3wsYiDvzaB
+                kKKA5NAsprZ/AfkQ25fRPd2+SmnQaaLCjfHiNGU3Dz8OYUyBRqEpqigWgcJskSJee41seQg9Dw0V8VhybHh+3e8adeQ2NgkzXjza5P
+                trMRoLEy/DhFCzdT84U/OZ+IrCWM28MV+HJ72Vc6UiZwoLXNsJ01KouP/I1Y4OEQ79oahelHEQ4QujBMsVQcPFeIsWpLrpKXeB12Mr
+                wZMXGRx83Mhzf8uD0Kep8DSazSOVrxi1LG84aIVTt0iN6MNqfWzBnndNXTYTPwxDe7zHDEwyz6ZSy2DxZogvH/QPYZxOo76D7FTYoj
+                ubAHjLwIwQzviDVWD9Eu7FkDvpN20f3CaNnm3VauqB2rtMKjj0+PuhMpE5NuOB0FeM0EaefJtddJtSZJlLmpa4v/s5n/3Dm7Oj9Q/0
+                uZeWWaC8pf+3b8yy5fcTTREikU7pHKhbDl1Kcoa65+lQcyVvsUovgqAtpJiabYLC5yBLevgHstpTaJhA7fN01QLOy6G1shXOy12GjQ
+                == Andrew Vaughan 2016 MacBook Pro hello@andrewvaughan.io
+
+  - name      : deploy
+    sudoers   : "ALL = (root) /usr/bin/docker /usr/bin/docker-compose"
+    password  : derp
+    auth_hosts:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDRH9CCp7wlUgNQeELopcnv7GAdW5gwNKdYj8UnKB8kU9zKLZxvZWSvsYkHT+FHQL4hLLEkCP
+                iUUEdYhFL8/esyWZrU9x5zewYYenB8oveouMKMbejcupmkleOnXM1DV/lxQTSwFppE+N2/gVSwk0PKejl9BeCx6cp4KL3wsYiDvzaB
+                kKKA5NAsprZ/AfkQ25fRPd2+SmnQaaLCjfHiNGU3Dz8OYUyBRqEpqigWgcJskSJee41seQg9Dw0V8VhybHh+3e8adeQ2NgkzXjza5P
+                trMRoLEy/DhFCzdT84U/OZ+IrCWM28MV+HJ72Vc6UiZwoLXNsJ01KouP/I1Y4OEQ79oahelHEQ4QujBMsVQcPFeIsWpLrpKXeB12Mr
+                wZMXGRx83Mhzf8uD0Kep8DSazSOVrxi1LG84aIVTt0iN6MNqfWzBnndNXTYTPwxDe7zHDEwyz6ZSy2DxZogvH/QPYZxOo76D7FTYoj
+                ubAHjLwIwQzviDVWD9Eu7FkDvpN20f3CaNnm3VauqB2rtMKjj0+PuhMpE5NuOB0FeM0EaefJtddJtSZJlLmpa4v/s5n/3Dm7Oj9Q/0
+                uZeWWaC8pf+3b8yy5fcTTREikU7pHKhbDl1Kcoa65+lQcyVvsUovgqAtpJiabYLC5yBLevgHstpTaJhA7fN01QLOy6G1shXOy12GjQ
+                == Andrew Vaughan 2016 MacBook Pro hello@andrewvaughan.io

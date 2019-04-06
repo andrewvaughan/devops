@@ -32,6 +32,20 @@ Scripts are provided to install dependencies on remote machines, if needed.
 
 ## Usage
 
+A Makefile is provided for normal use. You may be asked to enter various vault passwords, depending on the request.
+To use the service, simply use one of the following commands:
+
+```bash
+make
+```
+
+The default command will run the full playbook.
+
+```bash
+make ping
+```
+
+This will ping each of the servers, ensuring they are both accessible and the `devops` user is configured correctly.
 
 ### Playbook Usage
 
@@ -73,23 +87,6 @@ Alternatively, you can run all tags *except* for one (or more) by skipping them:
 ```bash
 ansible-playbook --skip-tags=wiki,www playbook.yml
 ```
-
-### Encrypted Vaults
-
-A number of encrypted vaults are included with this configuration to protect sensitive information. The vaults
-available are as follows:
-
-| Vault | Contains |
-|:------|----------|
-
-To enter a password for a vault (enabling its use), include it's `--vault-id` when calling the playbook:
-
-```bash
-ansible-playbook --vault-id do@prompt playbook.yml
-```
-
-Multiple vaults can be decrypted by including `--vault-id` multiple times. Various vaults are required for different
-Ansible tags and roles.
 
 ## Contributing
 

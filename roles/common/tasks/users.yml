@@ -1,0 +1,23 @@
+# Ensures that the appropriate users are configured on the host.
+#
+# @author Andrew Vaughan <hello@andrewvaughan.io>
+# @since  0.1.0
+---
+
+#
+# Load our vault-encrypted user configurations
+#
+- name : "Loading user information from vault"
+  include_vars:
+    file : vars/users.yml
+    name : users
+
+
+#
+# @TODO - Test connecting to host as `devops` to see if the user is properly configured
+#
+
+
+#
+# @TODO - Configure `devops` user, as `root`, if prior test failed
+#
